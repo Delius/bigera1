@@ -1,6 +1,6 @@
 <h1>Listing pins</h1>
 
-<table>
+<table id="posts">
   <thead>
     <tr>
       <th>Name</th>
@@ -10,23 +10,24 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="page">
 
     <% @pins.each do |pin| %>
-      <tr>
-        <td><%= pin.name %></td>
-        <td><%= pin.image %></td>
-        <td><%= pin.board_id %></td>
-        <%=link_to(image_tag(pin.image.thumb.url), pin) %>
+    <tr class="post">
+      <td><%= pin.name %></td>
+      <td><%= pin.image %></td>
+      <td><%= pin.board_id %></td>
+      <td> <%=link_to(image_tag(pin.image.thumb.url), pin) %><p>
+        <strong>Board:</strong><%= pin.board.title %><br/><%= pin.board.user.email %></p></td>
         <td><%= link_to 'Show', pin %></td>
         <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
         <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-    <%= paginate @pins %>
-  </tbody>
-</table>
+      <% end %>
+      <%= paginate @pins %>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Pin', new_pin_path %>
+  <%= link_to 'New Pin', new_pin_path %>
