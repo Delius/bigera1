@@ -24,7 +24,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 # adds friendly id 
 gem 'friendly_id', '5.0.0.beta1'
-
+#install imagemagic for image upload
+gem 'rmagick'
+gem 'carrierwave'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 #devise for user  authentication
