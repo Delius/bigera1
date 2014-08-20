@@ -16,7 +16,7 @@
 </p>
 
 <div class="field">
-<%= @pin.image_url if @pin.image? %>
+<%=image_tag @pin.image.normal.url %>
 <%= f.file_field :image %>
 <%= f.hidden_field :image_cache %>
 </div>
