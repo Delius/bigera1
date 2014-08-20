@@ -15,5 +15,11 @@
   <%= @pin.board_id %>
 </p>
 
+<div class="field">
+<%= @pin.image_url if @pin.image? %>
+<%= f.file_field :image %>
+<%= f.hidden_field :image_cache %>
+</div>
+
 <%= link_to 'Edit', edit_pin_path(@pin) %> |
 <%= link_to 'Back', pins_path %>

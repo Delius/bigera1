@@ -35,6 +35,10 @@ class PinsController < ApplicationController
         format.json { render json: @pin.errors, status: :unprocessable_entity }
       end
     end
+
+    def pin_params
+      params.require(:pin).permit(:name, :imge, :imge_cache, :board_id)
+    end
   end
 
   # PATCH/PUT /pins/1
