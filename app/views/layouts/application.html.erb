@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bigera1</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Bigera1</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 
-<ul class="nav navbar-nav pull-right">
+</head>
+<body>
+
+	<<ul class="nav navbar-nav pull-right">
 <% if user_signed_in? %>
 <li><%=link_to "#{current_user.email}" %></li>
 <li class="active"><%= link_to "Logout",
@@ -18,11 +21,16 @@ new_user_registration_path%></li>
 <%end%>
 </ul>
 
-  
-</head>
-<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2">
+			</div>
+			<div class="col-lg-9">
+			</div>
+		</div>
+	</div>
 
-<%= yield %>
+	<%= yield %>
 
 </body>
 </html>
