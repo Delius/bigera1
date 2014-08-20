@@ -1,14 +1,30 @@
-Rails.application.routes.draw do
-  resources :pins
+Project5::Application.routes.draw do
+  resources :site_details
 
-  resources :boards
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :parts
 
-  devise_for :users
+  resources :pages do
+    collection do
+     get :manage
+
+      # required for Sortable GUI server side actions
+      post :rebuild
+    end
+  end
+
+  get "dashboard/index"
+   devise_for :users
+   
+   namespace :admin do 
+    get '', to: 'dashboard#index', as: '/'
+   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'pages#home_page'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -44,7 +60,7 @@ Rails.application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-
+  
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
